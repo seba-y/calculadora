@@ -244,7 +244,7 @@ footer{
 
 footer p, footer a{
     text-decoration: none;
-
+    font-size: 1.5rem;
 }
 
 footer a{
@@ -274,7 +274,7 @@ footer a:hover{
         font-size: 10px;
     }
     .container{
-        height: 85dvh;
+        height: 400px;
     }
     #hyp{
         padding: 5px;
