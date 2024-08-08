@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta description="">
+	<title>CALC</title>
+    <link rel="shortcut icon" href="src/icon-w.svg">
+    <link rel="stylesheet" 
+        href="styles/reset.css">
+    <link rel="stylesheet" 
+        href="styles/style.css">  
+    <style class="fonts">
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inconsolata&display=swap');
+    </style>
+
+</head>
+<body>
+  <header class="pag-h">
+    <p class="tt-head">Calculadora</p>
+  </header>
+    <main>
+        
+        <div class="container">
+          <header class="head-calc">
+            <div class="btns-head-c">
+                <button id="fullNum" class="btns" disabled title="ver el número completo">full issue</button>                
+                <p class="deg-rad" title="cambiar entre grado y radianes">RAD</p>
+            </div>
+            <input type="text" id="show" readonly>
+          </header>
+            <div class="btn-box">
+                <div class="trigonometry btn">
+                    <button id="hyp" class="btns">hyp</button>
+                    <button id="sin" class="btns btns-s">sin</button>
+                    <button id="sec" class="btns btns-s">sec</button>
+                    <button id="cos" class="btns btns-s">cos</button>
+                    <button id="csc" class="btns btns-s">csc</button>
+                    <button id="tan" class="btns btns-s">tan</button>
+                    <button id="cot" class="btns btns-s">cot</button>
+                    <button id="log" class="btns btns-s">log</button>
+                    <button id="ln" class="btns btns-s" title="logaritmo  natural">ln</button>
+                </div>
+                <div class="numbers btn">
+                    <button id="numOne" class="btns btns-simple">1</button>
+                    <button id="numTwo" class="btns btns-simple">2</button>
+                    <button id="numThree" class="btns btns-simple">3</button>
+                    <button id="numFour" class="btns btns-simple">4</button>
+                    <button id="numFive" class="btns btns-simple">5</button>
+                    <button id="numSix" class="btns btns-simple">6</button>
+                    <button id="numSeven" class="btns btns-simple">7</button>
+                    <button id="numEight" class="btns btns-simple">8</button>
+                    <button id="numNine" class="btns btns-simple">9</button>
+                    <button id="resto" class="btns btns-simple">%</button>
+                    <button id="numCero" class="btns btns-simple">0</button>
+                    <button id="comma" class="btns btns-simple">,</button>
+                </div>
+                <div class="functions btn">
+                    <h5>Funciones</h5>
+                    <button id="random" class="btns btns-s"
+                              title="número al azar entre 0 y 100">random</button>
+                    <button id="floor" class="btns btns-s"
+                              title="devuelve el valor entero redondeado más bajo.">floor</button>
+                    <button id="ceil" class="btns btns-s"
+                              title="devuelve el valor mayor o igual más próximo">ceil</button>
+                    <button id="round" class="btns btns-s"
+                              title="redondea al número entero más cercano">round</button>
+                </div>
+                <div class="operations btn">
+                    <button id="delete" class="btns btns-simple">🡨</button>
+                    <button id="reset" class="btns btns-simple">C</button>
+                    <button id="addition" class="btns btns-simple">+</button>
+                    <button id="substraction" class="btns btns-simple">-</button>
+                    <button id="multiply" class="btns btns-simple">X</button>
+                    <button id="division" class="btns btns-simple">/</button>
+                    <button id="rq" class="btns btns-simple">√</button>
+                    <button id="potentiation" class="btns btns-simple">^</button>
+                    <button id="pi" class="btns btns-simple">π</button>
+                    <button id="e-num" class="btns btns-simple">e</button>
+                    <button id="equal" class="btns btns-simple">=</button>                     
+                </div>
+            </div>
+        </div>     
+        <div id="history">
+            <header class="history-head">
+                <h3>Historial de operaciones</h3>
+                <button id="clean-h" class="btns">⮌</button>                
+            </header>
+            <div id="results">
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="script/calculadora.js"></script>
+</body>
+</html>

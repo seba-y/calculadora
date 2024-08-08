@@ -42,7 +42,7 @@ const ceil = document.getElementById('ceil');
 const round = document.getElementById('round');
 
 const deletee = document.getElementById('delete');
-const calcH = document.getElementById('history');
+const calcH = document.getElementById('results');
 const clearH = document.getElementById('clean-h');
 
 // ---	---- --- ---- --- ---- --- ----
@@ -59,6 +59,14 @@ let opT = ''	;
 show.value = null ;
 
 // EVENTOS DE LOS BOTONES --- ---- EVENTOS DE LOS BOTONES --- ----
+
+onmousedown = ()=>{
+	if(show.value.includes('!')){
+		show.style.color = '#ffffff'
+		message = false ;
+		resetF()
+	}
+}
 
 random.onclick = ()=>{	res = Math.floor(Math.random()*(Math.floor(100)-Math.ceil(0)+1)+Math.ceil(0));
 						show.value = (res).toLocaleString('es-es');
@@ -111,11 +119,11 @@ nEight.onclick = ()=>{show.value += 8;
 					};
 nNine.onclick = ()=>{show.value += 9;
 					 res += '9';
-						};
+					};
 nCero.onclick = ()=>{show.value += 0;
 					 res += '0';
-						};
-comma.onclick = ()=>{if(res.includes('.') == false){
+					};
+comma.onclick = ()=>{if((res+'').includes('.') == false){
 						show.value += ',';
 						res += '.' ;
 						}	
@@ -145,10 +153,10 @@ csc.onclick = ()=>{	csc.textContent == 'csc'? opTri('csc') : opTri('csch');		};
 tan.onclick = ()=>{ tan.textContent == 'tan'? opTri('tan') : opTri('tanh');		};
 cot.onclick = ()=>{	cot.textContent == 'cot'? opTri('cot') : opTri('coth');		};
 substr.onclick = ()=>{
-			if(res == ''  && op != '-' && op != '+' && op != '√' ){
-				show.value = '-';
-				res = '-';
-			}else if(res != '-' || res != '-.') {	operations('-');	}
+						if(res == ''  && op != '-' && op != '+' && op != '√' ){
+							show.value = '-';
+							res = '-';
+						}else if(res != '-' || res != '-.') {	operations('-');	}
 		};
 deletee.onclick = ()=>{	let shw = show.value.replace(/[.]/g,'');
 						let shwDel = show.value.substring(0, show.value.length -1);
@@ -171,13 +179,15 @@ deletee.onclick = ()=>{	let shw = show.value.replace(/[.]/g,'');
 clearH.onclick = ()=>{	calcH.textContent = '';	};
 equal.onclick = ()=>{
 	if(opT != 'geometry' && opA == '' || op == '' ){
-		alert('no hay una operación para realizar.');
-	}else if((res+'').startsWith('-')  == true && res == '-' || res == '-.'  || res == '.'){
-		alert('operación inválida.');
-	}else if(res != ''){
+		show.value = '!NO HAY UNA OPERACIÓN PARA REALIZAR¡'
+		show.style.color = 'rgb(223, 212, 65)'
+	} else if((res+'').startsWith('-')  == true && res == '-' || res == '-.'  || res == '.'){
+		show.value = '!OPERACIÓN INVALIDA¡';
+		show.style.color = 'rgb(250,0,0)';
+	 } else if(res != ''){
 		opB = res;
 		resolve();
-	 }
+	  }
 };
 
 fullNum.onclick = ()=> {	
@@ -275,10 +285,12 @@ function operations(op_){
 }
 
 function opTri(op_){
+	if(opA != ''){	opA='' }
 	op = op_ ;
 	opT = 'geometry'
 	if((op == 'log' || op == 'ln' || op == '√') && (res+'').startsWith('-')){
-		alert('operación no válida');
+		show.value= '¡OPERACIÓN INVÁLIDA!';
+		show.style.color='rgb(250,0,0)'
 	} else if(res != '' && res != '-' && res != '.' && res != '-,'){
 		opB = res;
 		resolve();
@@ -336,20 +348,23 @@ function resolve() {
 		case 'coth': res_ = 1/(Math.tanh(opB));
 			break;
 	}
+	// reemplaza los puntos para que no haya malentendidos entre los formatos es y en
 	opA = (opA+'').replace(/[.]/g,',');
 	opB = (opB+'').replace(/[.]/g,',');
+
+	// agrega la operación al historial 
 	if(opT == 'geometry'){
-		calcH.insertAdjacentHTML('afterbegin', `<p>${op}(${opB}) = <br> <b>${(''+res_).replace(/[.]/g,',')}</b></p>`);
+		calcH.insertAdjacentHTML('afterbegin', `<p class='his-p'>${op}(${opB}) = <br> <b class='his-b'>${(''+res_).replace(/[.]/g,',')}</b></p>`);
 	} else if(op == '^'){
-		calcH.insertAdjacentHTML('afterbegin',`<p>(${opA})<sup>${opB}</sup>=<br> <b>${(''+res_).replace(/[.]/g,',')}</b></p>`);
-	}else { calcH.insertAdjacentHTML('afterbegin',`<p>${opA} ${op} ${opB} =<br> <b>${(''+res_).replace(/[.]/g,',')}</b></p>`);}
+		calcH.insertAdjacentHTML('afterbegin',`<p class='his-p'>(${opA})<sup style="color:#4f4f4f;">${opB}</sup>=<br> <b class='his-b'>${(''+res_).replace(/[.]/g,',')}</b></p>`);
+	}else { calcH.insertAdjacentHTML('afterbegin',`<p class='his-p'>${opA} ${op} ${opB} =<br> <b class='his-b'>${(''+res_).replace(/[.]/g,',')}</b></p>`);};
 	
 	resetF();
 	res = res_ ;
 
 	// si el numero es muy largo, muestra 
 	(''+res).includes('e')	?	show.value = (res_+'').replace(/[.]/g,',') : show.value = res_.toLocaleString('es-es');
-	// 	revisa si habilita el boton fullNum 
+	// 	revisa si se habilita el boton fullNum 
 	if(show.value.replace(/[.]/g,'').length != (''+res).length)	{ fullNum.removeAttribute('disabled','') } ;
 }
 
@@ -359,6 +374,7 @@ function resetF() {
 	opB = '' ;
 	show.value = '' ;
 	res = ''	;
+	fullNum.setAttribute('disabled','');
 }
 
 function clear() {
@@ -375,6 +391,7 @@ function hyperbolic(){
 				tan.textContent = 'tanh';
 				cot.textContent = 'coth';
 				hiper = 'yes';
+				hyp.style.color='#ffff';
 		} else {
 				sin.textContent = 'sin';
 				sec.textContent = 'sec';
@@ -383,8 +400,9 @@ function hyperbolic(){
 				tan.textContent = 'tan';
 				cot.textContent = 'cot'; 
 				hiper = 'no';
+				hyp.style.color='#313131';
 				}
-		hyp.style.backgroundColor == 'red'? hyp.style.backgroundColor='green' : hyp.style.backgroundColor='red'; 
+				
 }
 
 function toDegree(){
