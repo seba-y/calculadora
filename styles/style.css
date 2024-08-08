@@ -165,7 +165,7 @@ h5{
     gap: 5px;
 }
 .numbers> button{
-    background-color: #080808;
+    background-color: #140000;
 }
 .operations{
     grid-column: 2/3;
@@ -178,6 +178,8 @@ h5{
 #equal{
     grid-column: 2/4;
     min-width: 60px;
+    background-color: transparent;
+    border-radius: 1px solid #ffffff;
 }
 
 #history{
@@ -234,7 +236,7 @@ h3{ font-size: 2rem;
 }
 
 footer{
-    position: relative;
+    position: absolute;
     bottom: 0;
     background-color: #000000;
     width: 100%;
