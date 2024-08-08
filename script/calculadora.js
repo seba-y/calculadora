@@ -1,16 +1,19 @@
+// ERROR AL PRESIONAR UNA SUMA NORMAL Y LUEGO USAR UNA OPERACIÓN TRIGONOMETRICA. EJ: '3' + '+' 'ln' '3' = NAN ; 
+// LN RECIBE DOS NUMEROS, CUANDO DEBERIA BORRAR EL NUMERO GUARDADO Y OPERAR CON EL Nº NUEVO
+
 const show = document.getElementById('show');
 const fullNum = document.getElementById('fullNum');
 // NUMBERS ---
-const nOne = document.getElementById('nOne');
-const nTwo = document.getElementById('nTwo');
-const nThree = document.getElementById('nThree');
-const nFour = document.getElementById('nFour');
-const nFive = document.getElementById('nFive');
-const nSix = document.getElementById('nSix');
-const nSeven = document.getElementById('nSeven');
-const nEight = document.getElementById('nEight');
-const nNine = document.getElementById('nNine');
-const nCero = document.getElementById('nCero');
+const nOne = document.getElementById('numOne');
+const nTwo = document.getElementById('numTwo');
+const nThree = document.getElementById('numThree');
+const nFour = document.getElementById('numFour');
+const nFive = document.getElementById('numFive');
+const nSix = document.getElementById('numSix');
+const nSeven = document.getElementById('numSeven');
+const nEight = document.getElementById('numEight');
+const nNine = document.getElementById('numNine');
+const nCero = document.getElementById('numCero');
 const comma = document.getElementById('comma');
 // OPERATIONS ---
 const reset = document.getElementById('reset');
