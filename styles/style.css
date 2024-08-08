@@ -24,8 +24,8 @@
 }
 
 main{
-    position: relative;
-    margin-top: 2rem;
+    position:relative;
+    margin-top: 3rem;
     display: flex;
     gap: 20px;
     padding: 10px;
@@ -240,7 +240,7 @@ h3{ font-size: 2rem;
 
 footer{
     margin-top: 2rem;
-    position: absolute;
+    position: relative;
     bottom: 0;
     background-color: #000000;
     width: 100%;
