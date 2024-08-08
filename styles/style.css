@@ -239,7 +239,7 @@ h3{ font-size: 2rem;
 }
 
 footer{
-    position: relative;
+    position: absolute;
     bottom: 0;
     background-color: #000000;
     width: 100%;
