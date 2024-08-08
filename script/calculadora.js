@@ -1,6 +1,3 @@
-// ERROR AL PRESIONAR UNA SUMA NORMAL Y LUEGO USAR UNA OPERACIÓN TRIGONOMETRICA. EJ: '3' + '+' 'ln' '3' = NAN ; 
-// LN RECIBE DOS NUMEROS, CUANDO DEBERIA BORRAR EL NUMERO GUARDADO Y OPERAR CON EL Nº NUEVO
-
 const show = document.getElementById('show');
 const fullNum = document.getElementById('fullNum');
 // NUMBERS ---
