@@ -13,7 +13,13 @@
     <style class="fonts">
         @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inconsolata&display=swap');
     </style>
-
+    <link rel="preconnect" 
+            href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+         rel="stylesheet">
 </head>
 <body>
   <header class="pag-h">
@@ -67,7 +73,7 @@
                               title="redondea al número entero más cercano">round</button>
                 </div>
                 <div class="operations btn">
-                    <button id="delete" class="btns btns-simple">🡨</button>
+                    <button id="delete" class="btns btns-simple">←</button>
                     <button id="reset" class="btns btns-simple">C</button>
                     <button id="addition" class="btns btns-simple">+</button>
                     <button id="substraction" class="btns btns-simple">-</button>
@@ -84,12 +90,15 @@
         <div id="history">
             <header class="history-head">
                 <h3>Historial de operaciones</h3>
-                <button id="clean-h" class="btns">⮌</button>                
+                <button id="clean-h" class="btns">X</button>                
             </header>
             <div id="results">
             </div>
         </div>
     </main>
+    <footer>
+        <p>developed by <a href="https://github.com/seba-y">Sebastian Rapetti</a></p>
+    </footer>
 
     <script type="text/javascript" src="script/calculadora.js"></script>
 </body>
